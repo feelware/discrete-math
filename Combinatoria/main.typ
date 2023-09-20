@@ -171,6 +171,22 @@ Se pueden formar 684375 palabras de cinco letras sin dos vocales seguidas ni tre
 \
 
 == Ejercicio 9
-La música serial se basa en el principio de que en cualquier línea melódica han de apare-
-cer los 12 tonos de la escala antes de repetirse alguno. ¿Cuántas líneas melódicas de 12
-notas se pueden formar según este principio?
+La música serial se basa en el principio de que en cualquier línea melódica han de aparecer los 12 tonos de la escala antes de repetirse alguno. ¿Cuántas líneas melódicas de 12 notas se pueden formar según este principio?
+
+=== Solución
+El total de líneas melódicas de 12 notas que se pueden formar equivale al total de permutaciones sin repetición de 12 elementos tomados de 12 en 12, es decir
+
+$ P _12^12 = 12! / (12 - 12)! = 479001600 $
+
+\
+
+== Ejercicio 10
+En problemas de diseño de redes de interconexión se suelen usar grafos que tienen por vértices palabras de un alfabeto. Por ejemplo, los llamados grafos de Kautz tienen por vértices las palabras de longitud k qur se pueden formar de un alfabeto de n símbolos con la condición que dos letras consecutivas no pueden ser iguales. ¿Cuántas de estas palabras hay?
+
+=== Solución
+La primera letra del vértice puede ser cualquiera de las $n$ letras del alfabeto. El resto de letras puede ser cualquiera de las $n - 1$ letras del alfabeto, excepto por la letra que se eligió para la letra inmediatamente anterior (puede tomar el color de letras anteriores a la inmediatamente anterior). Por el principio de multiplicación, el total de palabras que se pueden formar es $n (n - 1)^(k - 1)$
+
+\
+
+== Ejercicio 11
+Sea $A = {1, 2, dots, n}$ y $X = {x_1, x_2, dots, x_k}$ conjunto de $k$ símbolos. Una aplicación $f : X arrow A$ es ordenada si $f(x_1) lt.eq f(x_2) lt.eq dots lt.eq f(x_k)$ y estrictamente ordenada si las desigualdades son estrictas. ¿Cuántas aplicaciones ordenadas y cuántas estrictamente ordenadas hay de $X$ en $A$?
