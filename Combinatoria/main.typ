@@ -190,3 +190,25 @@ La primera letra del vértice puede ser cualquiera de las $n$ letras del alfabet
 
 == Ejercicio 11
 Sea $A = {1, 2, dots, n}$ y $X = {x_1, x_2, dots, x_k}$ conjunto de $k$ símbolos. Una aplicación $f : X arrow A$ es ordenada si $f(x_1) lt.eq f(x_2) lt.eq dots lt.eq f(x_k)$ y estrictamente ordenada si las desigualdades son estrictas. ¿Cuántas aplicaciones ordenadas y cuántas estrictamente ordenadas hay de $X$ en $A$?
+
+=== Solución
+Se nos pide todas las permutaciones con repetición de elementos del conjunto $A$ (que contiene todos los números enteros del 1 al $n$) tomados de $k$ en $k$, en las que
+
+- En el primer caso, a cada elemento le siga uno mayor o igual (aplicación ordenada)
+- En el segundo caso, a cada elemento le siga uno mayor (aplicación estrictamente ordenada)
+
+En el primer caso, el primer elemento $f(x_1)$ puede tomar cualquier valor del 1 al $n$ (total de $n$ posibilidades). Cada elemento restante $f(x_i)$ está restringido a el valor del elemento inmmediatamente anterior $f(x_(i-1))$ y $n$ (total de $n - f(x_(i-1)) + 1$ posibilidades).
+
+Entonces, el total de aplicaciones ordenadas en función de $n$ y $k$ es
+
+$ n dot (n - f(x_1) + 1) dot (n - f(x_2) + 1) dot dots dot (n - f(x_(k-1)) + 1) $
+
+En el segundo caso, la única diferencia es que cada elemento restante $f(x_i)$ debe ser mayor que el elemento inmmediatamente anterior $f(x_(i-1))$, no solo mayor o igual (total de $n - f(x_(i-1))$ posibilidades).
+
+Entonces, el total de aplicaciones estrictamente ordenadas en función de $n$ y $k$ es
+
+$ n dot (n - f(x_1)) dot (n - f(x_2)) dot dots dot (n - f(x_(k-1))) $
+
+\
+
+== Ejercicio 12
