@@ -203,7 +203,7 @@ Entonces, el total de aplicaciones ordenadas en función de $n$ y $k$ es
 
 $ n dot (n - f(x_1) + 1) dot (n - f(x_2) + 1) dot dots dot (n - f(x_(k-1)) + 1) $
 
-En el segundo caso, la única diferencia es que cada elemento restante $f(x_i)$ debe ser mayor que el elemento inmmediatamente anterior $f(x_(i-1))$, no solo mayor o igual (total de $n - f(x_(i-1))$ posibilidades).
+En el segundo caso, la única diferencia es que cada elemento restante $f(x_i)$ debe ser mayor que el elemento inmmediatamente anterior $f(x_(i-1))$, no solo mayor o igual (total de $n - f(x_(i-1))$ posib\nilidades).
 
 Entonces, el total de aplicaciones estrictamente ordenadas en función de $n$ y $k$ es
 
@@ -212,3 +212,31 @@ $ n dot (n - f(x_1)) dot (n - f(x_2)) dot dots dot (n - f(x_(k-1))) $
 \
 
 == Ejercicio 12
+En una reunión de una empresa hay ocho representantes de los accionistas, seis representantes de acreedores, cuatro representantes de los trabajadores y tres técnicos. Para resolver más ágilmente la organización de la reunión deciden nombrar una comisión formada por tres representantes de los accionistas, dos representantes de acreedores, un representante de los trabajadores y un técnico. ¿Cuántas comisiones diferentes se podrían formar? Si uno de los accionistas se niega en rotundo a formar parte de la comisión con dos de los representantes de los trabajadores, a los cuales tiene manía, ¿cuántas comisiones se podrían formar?
+
+=== Solución
+En el primer caso, el total de comisiones diferentes que se pueden formar equivale al producto de
+
+- Accionistas: $C _8 ^3 = 56$
+- Acreedores: $C _6 ^2 = 15$
+- Trabajadores: $C _4 ^1 = 4$
+- Técnico: $C _3 ^1 = 3$
+
+$ C _8 ^3 dot C _6 ^2 dot C _4 ^1 dot C _3 ^1 = 56 dot 15 dot 4 dot 3 = 10080 $
+
+En el segundo caso, tenemos que restarle al total hallado anteriormente al total de comisiones diferentes que no se pueden formar producto de las preferencias del accionista de no trabajar con dos trabajadores determinados. El total de estos casos equivale al producto de
+
+- Accionista en cuestión: $1$
+- Resto de accionistas: $C _7 ^2 = 21$
+- Acreedores: $C _6 ^2 = 15$
+- Trabajadores en cuestión: $C _2 ^1 = 2$
+- Técnico: $C _3 ^1 = 3$
+
+$ 1 dot C _7 ^2 dot C _6 ^2 dot C _2 ^1 dot C _3 ^1 = 1 dot 21 dot 15 dot 2 dot 3 = 1890 $
+
+Entonces, el total de comisiones diferentes que se pueden formar en el segundo caso es
+
+$ 10080 - 1890 = 8190 $
+
+\
+
