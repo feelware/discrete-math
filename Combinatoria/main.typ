@@ -71,3 +71,106 @@ Finalmente, restamos todos los nodos finales eliminados al total de nodos finale
 $ 729 - 72 - 8 - 8 - 49 = 592 $
 
 Entonces, se pueden escoger tres números del 1 al 9 de 592 maneras distintas de manera que no salgan dos consecutivos.
+
+\
+
+== Ejercicio 4
+Las placas de matrícula tienen cuatro dígitos numéricos seguidos de dos alfabéticos. ¿Cuántos coches se pueden matricular? Una vez se han agotado, se propone que las matrículas puedan estar formadas por seis dígitos alfanuméricos (es decir, cifras del 0 al 9 o letras de la A a la Z). ¿Cuántas matrículas nuevas se pueden hacer? Una vez agotadas éstas, ¿qué estrategia proporcionaría más matrículas nuevas, hacer matrículas con 7 dígitos, o bien añadir un símbolo al alfabeto?
+
+=== Solución
+En el primer caso, el total de matrículas posibles equivale al total de permutaciones con repetición de 10 dígitos tomados de 4 en 4, multiplicado por el total de permutaciones con repetición de 26 letras tomadas de 2 en 2, es decir
+
+$ P R _10 ^4 dot P R _26 ^2 = 10^4 dot 26^2 = 6760000 $
+
+En el segundo caso, el total de matrículas posibles equivale al total de permutaciones con repetición de 36 dígitos alfanuméricos (10 cifras o 26 letras sin contar la ñ) tomados de 6 en 6, es decir
+
+$ P R _36 ^6 = 36^6 = 2176782336 $
+
+En el tercer caso, por un lado tenemos el total de permutaciones con repetición de 36 dígitos tomados de 7 en 7, es decir
+
+$ P R _36 ^7 = 36^7 = 78364164096 $
+
+Por otro lado, tenemos el total de permutaciones con repetición de 36 dígitos alfanuméricos más uno nuevo, tomados de 6 en 6, es decir
+
+$ P R _37 ^6 = 37^6 = 2565726409 $
+
+Notamos que la primera estrategia proporciona más matrículas nuevas.
+
+\
+
+== Ejercicio 5
+¿Cuántos números hay entre 100 y 900 que tengan las cifras diferentes? ¿Cuántos números más grandes que 6600 con todas las cifras diferentes y sin ninguna de las cifras 7, 8 ni 9?
+
+=== Solución
+En el primer caso, las siguientes condiciones pueden derivarse del enunciado:
+
+- El primer dígito puede ser cualquier número entre 1 y 8. En total son 8 posibilidades.
+
+- El segundo dígito puede ser cualquier número entre 0 y 9, excepto aquel que se eligió para el primer dígito. En total son 9 posibilidades.
+
+- El tercer dígito puede ser cualquier número entre 0 y 9, excepto aquellos que se eligieron para el primer y segundo dígito. En total son 8 posibilidades.
+
+Por el principio de multiplicación, el total de números entre 100 y 900 que tienen las cifras diferentes es
+
+$ 8 dot 9 dot 8 = 576 $
+
+En el segundo caso, notamos que ningún número de cuatro cifras puede satisfacer el enunciado, pues para que sea mayor a 6600, o bien
+
+- El primer dígito aumenta (lo que es imposible, pues no puede ser 7, 8 ni 9)
+
+- El primer dígito permanece y el segundo aumenta (lo que es imposible, pues no puede ser 7, 8 ni 9)
+
+- Los dos primeros dígitos permanecen y cualquiera de los dos úlitmos aumenta (lo que es imposible, pues se estarían repitiendo los dos primeros dígitos)
+
+Así, el total de números más grandes que 6600 con todas las cifras diferentes y sin ninguna de las cifras 7, 8 ni 9 es 0.
+
+\
+
+== Ejercicio 6
+Cuántas palabras de longitud 4 se pueden formar con las cinco vocales sin que se repita ninguna? ¿Y de longitud 5 (también sin que se repita ninguna)?
+
+=== Solución
+En el primer caso, se efectua una permutación sin repetición de 5 elementos tomados de 4 en 4, es decir
+
+$ P _5 ^4 = 5! / (5 - 4)! = 120 $
+
+En el segundo caso, se efectua una permutación sin repetición de 5 elementos tomados de 5 en 5, es decir
+
+$ P _5 ^5 = 5! / (5 - 5)! = 120 $
+
+\
+
+== Ejercicio 7
+Un código de colores con barras usa 6 colores para pintar 4 barras, pero dos barras consecutivas no pueden tener el mismo color. ¿Cuántas palabras diferentes se pueden formar?
+
+=== Solución
+Notamos que la primera barra puede ser pintada con cualquiera de los 6 colores. El resto de barras puede ser pintado con cualquiera de los 6 colores excepto por el color que se eligió para la barra inmediatamente anterior (puede tomar el color de barras anteriores a la inmediatamente anterior). Por el principio de multiplicación, el total de palabras diferentes que se pueden formar es $6 dot 5 dot 5 dot 5 = 750$
+
+== Ejercicio 8
+En un alfabeto de 10 consonantes y 5 vocales, ¿cuántas palabras de cinco letras sin dos vocales seguidas ni tres consonantes seguidas se pueden formar?
+
+=== Solución
+Analizando primero el caso sin restricciones, tenemos que el total de palabras de cinco letras que se pueden formar equivale al total de permutaciones con repetición de 15 letras tomadas de 5 en 5, es decir
+
+$ P R _15 ^5 = 15^5 = 759375 $
+
+Restamos los casos que no pueden ocurrir. Para el propósito de representar fácilmente las distribuciones de letras, usaremos cadenas de letras C para consonantes y V para vocales.
+
+- $V V C C C$
+- $V C C C V$
+- $C C C V V$
+
+Dado que el enunciado no exige que las letras no se repitan, los tres casos pueden ocurrir el mismo número de veces: $5² dot 10³$, representando el total de permutaciones con repetición de 10 consonantes tomadas de 3 en 3 y 5 vocales tomadas de 2 en 2. En total, se eliminan $3 dot 5² dot 10³ = 75000$ casos.
+
+Finalmente, se resta el total de casos sin restricciones a los casos que no pueden ocurrir, obteniendo
+
+$ 759375 - 75000 = 684375 $
+
+Se pueden formar 684375 palabras de cinco letras sin dos vocales seguidas ni tres consonantes seguidas.
+
+\
+
+== Ejercicio 9
+La música serial se basa en el principio de que en cualquier línea melódica han de apare-
+cer los 12 tonos de la escala antes de repetirse alguno. ¿Cuántas líneas melódicas de 12
+notas se pueden formar según este principio?
