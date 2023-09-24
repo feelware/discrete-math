@@ -38,7 +38,11 @@ El total de posibles palabras Morse de longitud 4 equivale al total de permutaci
 
 $ P R _2 ^4 = 2^4 = 16 $
 
-Dado que el alfabato ordinario tiene 26 letras (sin contar la ñ), queda en evidencia que no es posible representar todas ellas con palabras Morse de longitud 4.
+Debemos considerar que el enunciado no exige que la longitud sea 4, mas bien, especifica una longitud máxima. Considerando las palabras de longitud 3, 2 y 1, tenemos
+
+$ P R _2 ^4 + P R _2 ^3 + P R _2 ^2 + P R _2 ^1 = 16 + 8 + 4 + 2 = 30 $
+
+Notamos que el total de palabras Morse de longitud máxima 4 es suficiente para representar todas las letras del alfabeto ordinario, el cual consta de 26 letras (sin contar la ñ).
 
 \
 
@@ -150,23 +154,20 @@ Notamos que la primera barra puede ser pintada con cualquiera de los 6 colores. 
 En un alfabeto de 10 consonantes y 5 vocales, ¿cuántas palabras de cinco letras sin dos vocales seguidas ni tres consonantes seguidas se pueden formar?
 
 === Solución
-Analizando primero el caso sin restricciones, tenemos que el total de palabras de cinco letras que se pueden formar equivale al total de permutaciones con repetición de 15 letras tomadas de 5 en 5, es decir
+Para el propósito de representar fácilmente las distribuciones de letras, usaremos cadenas de letras C para consonantes y V para vocales.
 
-$ P R _15 ^5 = 15^5 = 759375 $
+Los casos que satisfacen las condiciones del enunciado son
 
-Restamos los casos que no pueden ocurrir. Para el propósito de representar fácilmente las distribuciones de letras, usaremos cadenas de letras C para consonantes y V para vocales.
+- VCVCV: $P R _5 ^3 dot P R _10 ^2 = 5^3 dot 10^2 = 12500$
+- CVCVC: $P R _10 ^3 dot P R _5 ^2 = 10^3 dot 5^2 = 25000$
+- VCCVC: $P R _10 ^3 dot P R _5 ^2 = 10^3 dot 5^2 = 25000$
+- VCVCC: $P R _10 ^3 dot P R _5 ^2 = 10^3 dot 5^2 = 25000$
+- CVCCV: $P R _10 ^3 dot P R _5 ^2 = 10^3 dot 5^2 = 25000$
+- CCVCC: $P R _10 ^4 dot P R _5 ^1 = 10^4 dot 5^1 = 50000$
 
-- $V V C C C$
-- $V C C C V$
-- $C C C V V$
+El total de palabras de cinco letras sin dos vocales seguidas ni tres consonantes seguidas que se pueden formar es
 
-Dado que el enunciado no exige que las letras no se repitan, los tres casos pueden ocurrir el mismo número de veces: $5² dot 10³$, representando el total de permutaciones con repetición de 10 consonantes tomadas de 3 en 3 y 5 vocales tomadas de 2 en 2. En total, se eliminan $3 dot 5² dot 10³ = 75000$ casos.
-
-Finalmente, se resta el total de casos sin restricciones a los casos que no pueden ocurrir, obteniendo
-
-$ 759375 - 75000 = 684375 $
-
-Se pueden formar 684375 palabras de cinco letras sin dos vocales seguidas ni tres consonantes seguidas.
+$ 12500 + 25000 + 25000 + 25000 + 25000 + 50000 = 162500 $
 
 \
 
@@ -240,3 +241,24 @@ $ 10080 - 1890 = 8190 $
 
 \
 
+== Ejercicio 13
+Una empresa de sondeos escoge una muestra de 20 estudiantes al azar de entre una comunidad de 500 estudiantes para hacer una encuesta. ¿Cuántas muestras diferentes puede obtener? Uno de los estudiantes está encantado de que le pasen la encuesta. ¿Cuántas de estas muestras contienen a este estudiante?
+
+=== Solución
+En el primer caso, el total de muestras diferentes que se pueden obtener equivale al total de combinaciones sin repetición de 500 elementos tomados de 20 en 20, es decir
+
+$ C _500 ^20 = 500! / (20! (500 - 20)!) = 2.667 dot 10^35 $
+
+En el segundo caso, el total de muestras diferentes que contienen al estudiante en cuestión equivale al total de combinaciones sin repetición de 499 elementos tomados de 19 en 19, multiplicado por 1 (el estudiante en cuestión), es decir
+
+$ C _499 ^19 = 499! / (19! (499 - 19)!) = 1.066 dot 10^34 $
+
+\
+
+== Ejercicio 14
+¿De cuántas maneras se pueden poner $n$ bolas numeradas en $k$ cajas numeradas de manera que en cada caja haya al menos una bola? ¿Y si las bolas no están numeradas?
+
+=== Solución
+En el primer caso, se distinguirá a las bolas por su número. Cada caja puede albergar como mínimo 1 bola y como máximo $n - (k - 1)$, de tal modo que la suma de bolas en todas las cajas sea $n$. Por el principio de multiplicación, el total de maneras de poner $n$ bolas numeradas en $k$ cajas numeradas es
+
+$ C _n ^1 dot C _(n - 1) ^1 dot dots dot C _(n - (k - 1)) ^1 = n dot (n - 1) dot dots dot (n - (k - 1)) $
